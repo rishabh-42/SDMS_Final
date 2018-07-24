@@ -1,180 +1,93 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <!-- Latest compiled and minified CSS -->
-    <style>
-        li {
-            margin: 10px 0;
-        }
-    </style>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <script type="text/javascript">
-
-        $('document').ready(
-            function () {
-                console.log("R");
-
-                $('#headerCarousel').carousel({
-                    interval: 2000,
-                    pause: "false"
-                });
-
-            }
-        );
-
-    </script>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+          integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>**put your title here**</title>
+    <link rel="icon" href="img/SCGJ.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 
-<div style="height: 20px">
-    <!--for spacing -->
 
-</div>
-<div class="container-fluid">
+<div class="container" style="min-height: 100vh;min-width: 100%;position: relative" >
 
+    <div class="row" style="position: relative;">
 
-    <div class="row ">
-
-        <div class="col-md-4 ">
-
-            <div class="pull-right" align="">
-
-                <img src="http://sscgj.in/wp-content/themes/skill_council/images/scgj.gif" class="img-fluid rounded">
-            </div>
-
+        <div class="col-md-4" style="padding: 10px 20px 5px 0px;"><a href="http://sscgj.in/">
+            <img src="img/SCGJLogo.png" width="90%"></a>
         </div>
+        <div class="col-md-5" style="padding: 20px 10px 5px 10px; ">
 
-
-        <div class="col-md-4 " align="right">
-
-
-            <div style="height: 18px"></div>
-            <div align="center">
-
-                <!--Image sliding  -->
-                <div id="headerCarousel" class="carousel slide" data-ride="carousel">
-
-
-                    <ol class="carousel-indicators">
-                        <li data-target="#headerCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#headerCarousel" data-slide-to="1"></li>
-                        <li data-target="#headerCarousel" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-
-                        <div class="item active" id="slide1">
-                            <img class="d-block w-100" src="http://sscgj.in/wp-content/uploads/2016/06/t3-1.gif"
-                                 alt="First slide">
-                        </div>
-
-                        <div class="item" id="slide2">
-                            <img class="d-block w-100" src="http://sscgj.in/wp-content/uploads/2016/06/t1.gif"
-                                 alt="Second slide">
-                        </div>
-
-
-                        <div class="item" id="slide3">
-                            <img class="d-block w-100" src="http://sscgj.in/wp-content/uploads/2016/06/t2.gif"
-                                 alt="Third slide">
-                        </div>
-
-
+            <div id="mycarousel" class="carousel slide" data-ride="carousel"
+                 style="position: relative;height:60px;box-shadow: 2px 2px 15px 3px lightgray;border-radius: 10px;padding: 10px">
+                <div class="carousel-inner">
+                    <div class="carousel-item active row">
+                        <a href="http://www.mnre.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float:left;padding: 0px"
+                                 src="img/t1.png"></a>
+                        <a href="http://powermin.nic.in/en">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float: left;padding: 0px"
+                                 src="img/t2.png"></a>
+                    </div>
+                    <div class="carousel-item row">
+                        <a href="http://powermin.nic.in/en">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float:left;padding: 0px"
+                                 src="img/t2.png"></a>
+                        <a href="http://msde.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float: left;padding: 0px"
+                                 src="img/t3.png"></a>
+                    </div>
+                    <div class="carousel-item row">
+                        <a href="http://msde.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float:left;padding: 0px"
+                                 src="img/t3.png"></a>
+                        <a href="http://www.mnre.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float: left;padding: 0px"
+                                 src="img/t1.png"></a>
                     </div>
                 </div>
 
             </div>
-            <!--Image sliding Ends here -->
-
         </div>
 
-
-        <div class="col-md-4">
-
-            <div align="">
-
-                <img src="http://sscgj.in/wp-content/themes/skill_council/images/skill-india.gif"
-                     class="img-fluid rounded float-right">
-                <img src="http://sscgj.in/wp-content/themes/skill_council/images/nsdc.gif"
-                     class="img-fluid rounded float-right">
+        <div class="col-md-3" style="padding: 10px 0px 5px 20px">
+            <div class="row" style="margin: 5px">
+                <div class="col-md-4"><img src="img/skill-india.png" width="100%"></div>
+                <div class="col-md-8"><img src="img/nsdc.png" width="100%"></div>
             </div>
         </div>
-
-    </div>
-
-
-    <div style="height: 10px"></div>
-
-    <div class="row">
-        <div class="col-md-2  ">
-
-            <DIV class=" bg-info" style="height: 650px">
+    </div><br>
 
 
-                <div style="height: 10px"></div>
+    <div class="row"
+         style="background-color: whitesmoke;position: relative;min-height:100vh;padding-top: 6px;overflow-y: visible ">
 
-                <div class="side-nav pull-left">
 
-                    <nav>
-                        <ul class="mx-0" style="list-style-type: none; font-size: large;">
-                            <li>
-                                <a href="#">
-                                    <span><i class="fa fa-bar-chart"></i></span>
-                                    <span>DASHBOARD</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span><i class="fa fa-drivers-license"></i></span>
-                                    <span>MANAGE REGISTRATION</span>
-                                </a>
-                            </li>
-                            <li class="active">
-                                <a href="#">
-                                    <span><i class="fa fa-file-excel-o"></i></span>
-                                    <span>IMPORT</span>
-                                </a>
-                            </li>
+        <div class="col-md-2" style="background-color: lightblue;padding-top: 20px;min-height: 100vh">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+                   aria-controls="v-pills-home" aria-selected="true">Affiliation From</a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="" role="tab"
+                   aria-controls="v-pills-profile" aria-selected="false">Dashboard</a>
+            </div>
 
-                            <li class="my-2">
-                                <a href="#">
-                                    <span><i class="fa fa-random"></i></span>
-                                    <span>BATCH ASSIGNMENT</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span><i class="fa fa-signal"></i></span>
-                                    <span>PLACEMENT REPORT</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span><i class="fa fa-question"></i></span>
-                                    <span>FAQ</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="main-content">
-                </div>
-            </DIV>
 
         </div>
-        <div class="col-md-10 bg-success">
+        <div class="col-md-10">
             <h1><strong>Batch Assignment</strong></h1>
 
             <!-- Table 1 -->
@@ -354,36 +267,62 @@
             </div>
 
         </div>
-
     </div>
-    <div style="height: 10px"></div>
-    <div class="row" style="margin: 5px" style="position: fixed;vertical-align: bottom">
 
-        <div class="col-md-12" style="background-color: darkseagreen;padding: 10px" align="center">
+
+</div>
+
+<footer class="footer">
+    <div class="row " style="min-width: 100%">
+
+        <div class="col-md-12" style="background-color: darkseagreen;padding: 5px;font-size:12px;font-family: Georgia"
+             align="center">
             <a href="http://sscgj.in/" style="color: black">HOME</a> &nbsp&nbsp|&nbsp&nbsp
             <a href="http://sscgj.in/?page_id=6" style="color: black">ABOUT US</a> &nbsp&nbsp|&nbsp&nbsp
             <a href="http://sscgj.in/?page_id=64" style="color: black">INDUSTRY CONNECT</a> &nbsp&nbsp|&nbsp&nbsp
             <a href="http://sscgj.in/?page_id=772" style="color: black">NATIONAL STANDARDS</a> &nbsp&nbsp|&nbsp&nbsp
             <a href="http://sscgj.in/?page_id=12" style="color: black">AFFILIATIONS</a> &nbsp&nbsp|&nbsp&nbsp
             <a href="http://sscgj.in/?page_id=14" style="color: black">PUBLICATIONS</a> &nbsp&nbsp|&nbsp&nbsp
-            <a href="http://sscgj.in/?page_id=16" style="color: black">STAGE LINKAGES </a>
+            <a href="http://sscgj.in/?page_id=16" style="color: black">STATE LINKAGES </a>
         </div>
 
 
-        <div class="col-md-12" align="center" style="background-color: cadetblue;width: 100%;padding: 15px;">
-            Copyright � 2016 sscgj.in - All Rights Reserved.
+        <div class="col-md-12" align="center"
+             style="background-color: cadetblue;width: 100%;padding: 6px;font-size: smaller">
+            Copyright &copy; 2016 sscgj.in - All Rights Reserved.
 
         </div>
 
-    </div>
+    </div></footer>
 
-</div>
-
-</div>
 
 </div>
 
 
 </body>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
 
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+</script>
+<script>
+    !function ($) {
+        $(function () {
+            // carousel demo
+            $('#myCarousel').carousel()
+        })
+    }(window.jQuery)
 
+</script>
+</html>
