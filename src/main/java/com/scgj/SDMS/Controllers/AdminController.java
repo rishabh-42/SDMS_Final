@@ -12,7 +12,7 @@ public class AdminController {
     @ResponseBody
 public ModelAndView getPlacementReport ()
 {
-    ModelAndView m = new ModelAndView("placementReport");
+    ModelAndView m = new ModelAndView("batchAssignment");
     return m;
 }
 }
