@@ -1,0 +1,389 @@
+<html>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <style>
+        li {
+            margin: 10px 0;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        $('document').ready(
+            function () {
+                console.log("R");
+
+                $('#headerCarousel').carousel({
+                    interval: 2000,
+                    pause: "false"
+                });
+
+            }
+        );
+
+    </script>
+
+
+</head>
+
+<body>
+
+<div style="height: 20px">
+    <!--for spacing -->
+
+</div>
+<div class="container-fluid">
+
+
+    <div class="row ">
+
+        <div class="col-md-4 ">
+
+            <div class="pull-right" align="">
+
+                <img src="http://sscgj.in/wp-content/themes/skill_council/images/scgj.gif" class="img-fluid rounded">
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4 " align="right">
+
+
+            <div style="height: 18px"></div>
+            <div align="center">
+
+                <!--Image sliding  -->
+                <div id="headerCarousel" class="carousel slide" data-ride="carousel">
+
+
+                    <ol class="carousel-indicators">
+                        <li data-target="#headerCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#headerCarousel" data-slide-to="1"></li>
+                        <li data-target="#headerCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+
+                        <div class="item active" id="slide1">
+                            <img class="d-block w-100" src="http://sscgj.in/wp-content/uploads/2016/06/t3-1.gif"
+                                 alt="First slide">
+                        </div>
+
+                        <div class="item" id="slide2">
+                            <img class="d-block w-100" src="http://sscgj.in/wp-content/uploads/2016/06/t1.gif"
+                                 alt="Second slide">
+                        </div>
+
+
+                        <div class="item" id="slide3">
+                            <img class="d-block w-100" src="http://sscgj.in/wp-content/uploads/2016/06/t2.gif"
+                                 alt="Third slide">
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <!--Image sliding Ends here -->
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div align="">
+
+                <img src="http://sscgj.in/wp-content/themes/skill_council/images/skill-india.gif"
+                     class="img-fluid rounded float-right">
+                <img src="http://sscgj.in/wp-content/themes/skill_council/images/nsdc.gif"
+                     class="img-fluid rounded float-right">
+            </div>
+        </div>
+
+    </div>
+
+
+    <div style="height: 10px"></div>
+
+    <div class="row">
+        <div class="col-md-2  ">
+
+            <DIV class=" bg-info" style="height: 650px">
+
+
+                <div style="height: 10px"></div>
+
+                <div class="side-nav pull-left">
+
+                    <nav>
+                        <ul class="mx-0" style="list-style-type: none; font-size: large;">
+                            <li>
+                                <a href="#">
+                                    <span><i class="fa fa-bar-chart"></i></span>
+                                    <span>DASHBOARD</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span><i class="fa fa-drivers-license"></i></span>
+                                    <span>MANAGE REGISTRATION</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="#">
+                                    <span><i class="fa fa-file-excel-o"></i></span>
+                                    <span>IMPORT</span>
+                                </a>
+                            </li>
+
+                            <li class="my-2">
+                                <a href="#">
+                                    <span><i class="fa fa-random"></i></span>
+                                    <span>BATCH ASSIGNMENT</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span><i class="fa fa-signal"></i></span>
+                                    <span>PLACEMENT REPORT</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span><i class="fa fa-question"></i></span>
+                                    <span>FAQ</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="main-content">
+                </div>
+            </DIV>
+
+        </div>
+        <div class="col-md-10 bg-success">
+            <h1><strong>Batch Assignment</strong></h1>
+
+            <!-- Table 1 -->
+            <div>
+                <form class="form-inline">
+
+                    <div style="margin-left: 10px" class="form-group mx-sm-3 mb-2">
+                        <span style="font-size: 20px ;"> Non-Assigned Batches</span>
+                        <label for="inputPassword2" class="sr-only">Password</label>
+                        <input style="margin-left:30px " type="text" class="form-control" id="inputPassword2" placeholder="Batch ID">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Search</button>
+                </form>
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Batch ID</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">End Date</th>
+                        <th scope="col">Assessment Date</th>
+                        <th>Assigned AB</th>
+                        <th>Assign</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>
+                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                <option selected>Choose...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+
+                        </td>
+                        <td> Later</td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+
+
+            <!--Table 2-->
+            <div>
+                <form class="form-inline">
+
+                    <div style="margin-left: 10px" class="form-group mx-sm-3 mb-2">
+                        <span style="font-size: 20px ;"> Proposed Batch(es)</span>
+                        <label for="inputPassword2" class="sr-only">Password</label>
+                        <input style="margin-left:60px " type="text" class="form-control" id="inputPassword2"
+                               placeholder="Batch ID">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Search</button>
+                </form>
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Batch ID</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">End Date</th>
+                        <th scope="col">Assessment Date</th>
+                        <th>Propsed AB</th>
+                        <th>Withdraw</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>
+                            Dummy
+
+                        </td>
+                        <td> Later</td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <!--Table 3-->
+            <div>
+                <form class="form-inline">
+
+                    <div style="margin-left: 10px" class="form-group mx-sm-3 mb-2">
+                        <span style="font-size: 20px ;"> Approved Batch(es)</span>
+                        <label for="inputPassword2" class="sr-only">Password</label>
+                        <input style="margin-left:60px " type="text" class="form-control" id="inputPassword2"
+                               placeholder="Batch ID">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Search</button>
+                </form>
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Batch ID</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">End Date</th>
+                        <th scope="col">Assessment Date</th>
+                        <th>Assigned AB</th>
+                        <th>Withdraw</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>
+                            Dummy
+
+                        </td>
+                        <td> Later</td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+
+            <!--Table 2-->
+            <div>
+                <form class="form-inline">
+
+                    <div style="margin-left: 10px" class="form-group mx-sm-3 mb-2">
+                        <span style="font-size: 20px ;"> Proposed Batch(es)</span>
+                        <label for="inputPassword2" class="sr-only">Password</label>
+                        <input style="margin-left:60px " type="text" class="form-control" id="inputPassword2"
+                               placeholder="Batch ID">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Search</button>
+                </form>
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Batch ID</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">End Date</th>
+                        <th scope="col">Assessment Date</th>
+                        <th>Rejected AB</th>
+                        <th>Comment</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>
+                            Dummy
+
+                        </td>
+                        <td> Later</td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div style="height: 10px"></div>
+    <div class="row" style="margin: 5px" style="position: fixed;vertical-align: bottom">
+
+        <div class="col-md-12" style="background-color: darkseagreen;padding: 10px" align="center">
+            <a href="http://sscgj.in/" style="color: black">HOME</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=6" style="color: black">ABOUT US</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=64" style="color: black">INDUSTRY CONNECT</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=772" style="color: black">NATIONAL STANDARDS</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=12" style="color: black">AFFILIATIONS</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=14" style="color: black">PUBLICATIONS</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=16" style="color: black">STAGE LINKAGES </a>
+        </div>
+
+
+        <div class="col-md-12" align="center" style="background-color: cadetblue;width: 100%;padding: 15px;">
+            Copyright � 2016 sscgj.in - All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+
+</body>
+
+
