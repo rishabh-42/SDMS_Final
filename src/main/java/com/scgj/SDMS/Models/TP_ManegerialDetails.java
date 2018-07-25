@@ -2,11 +2,14 @@ package com.scgj.SDMS.Models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "tp_managerialdetails")
 public class TP_ManegerialDetails {
+
+    @Id
     @Column(name = "abId")
     private int tpId;
 
