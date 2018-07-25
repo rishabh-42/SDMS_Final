@@ -60,7 +60,9 @@ public class Batches {
         this.no_of_candidates = no_of_candidates;
         this.no_of_candidates_placed = no_of_candidates_placed;
         this.qp_id = qp_id;
+
         this.ab_id = ab_id;
+
         this.start_date = start_date;
         this.end_date = end_date;
         this.assessment_date = assessment_date;

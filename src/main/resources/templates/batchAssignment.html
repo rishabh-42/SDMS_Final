@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!Doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
           integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
@@ -133,6 +133,15 @@
 
                         </td>
                         <td> Later</td>
+                    </tr>
+                    <tr th:each="item:${data}">
+
+                        <th scope="row" th:text="${item.getBatch_id()}"></th>
+                        <td th:text="${item.getIs_assessed()}"></td>
+                        <td th:text="${item.getEnd_date()}"></td>
+                        <td th:text="${item.getAssessment_date()}"></td>
+                        <td th:text="${item.getBatch_id()}"></td>
+
                     </tr>
 
 
