@@ -1,26 +1,608 @@
 <!Doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
           integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>**put your title here**</title>
+    <title>SSDMS</title>
+
     <link rel="icon" href="img/SCGJ.png" type="image/gif" sizes="16x16">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
             integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
             crossorigin="anonymous"></script>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
             integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
             crossorigin="anonymous"></script>
 
+
+    <style type="text/css">
+
+
+        .table-wrapper-scroll-y {
+            display: block;
+
+            overflow-x: auto;
+            max-height: 300px;
+            overflow-y: auto;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+        }
+    </style>
+    <script type="text/javascript">
+var count =0;
+
+
+
+
+        $(document).ready(function () {
+console.log("ok Report");
+
+            // $(".approve").click(
+            $('body').on('click', '.approve',
+            function (ev) {
+
+                ev.preventDefault();
+                console.log("andar to aa gfdsaye");
+                var a = $(this).parent().parent().html();
+                console.log(a);
+                var s = a.indexOf("<");
+                var e = a.indexOf("</");
+                console.log(s + "  " + e);
+                var final = a.substring(s + 4, e);
+
+                console.log(final);
+
+                $.ajax({
+                    // getOneRow/700
+                    url: "/approve/" + final, dataType: "html", success: function (result) {
+
+
+                        var resul = $(result).find('#mainDiv1');
+
+                        //console.log($(resul).find("#throw").html().length);
+
+                        b = $(resul).find("#throw").html() + "rishabh";
+                        console.log(b + "  " + b.length);
+                        if ((b.length) <= 17) {
+                            alert("No batch found !!");
+
+                        }
+                        else {
+                            $("#mainDiv1").html(resul);
+                        }
+                    }
+                })});
+
+
+            $('body').on('click', '.rejectt',function (ev) {
+
+                    ev.preventDefault();
+                    console.log("andar to aa gfdsaye");
+                    var a = $(this).parent().parent().html();
+                    console.log(a);
+                    var s = a.indexOf("<");
+                    var e = a.indexOf("</");
+                    console.log(s + "  " + e);
+                    var final = a.substring(s + 4, e);
+
+                    console.log(final);
+
+                    $.ajax({
+                        // getOneRow/700
+                        url: "/reject/" + final, dataType: "html", success: function (result) {
+
+
+                            var resul = $(result).find('#mainDiv1');
+
+                            //console.log($(resul).find("#throw").html().length);
+
+                            b = $(resul).find("#throw").html() + "rishabh";
+                            console.log(b + "  " + b.length);
+                            if ((b.length) <= 17) {
+                                alert("No batch found !!");
+
+                            }
+                            else {
+                                $("#mainDiv1").html(resul);
+                            }
+                        }
+                    });
+
+                });
+            $('body').on('click', '.withdraw',function (ev) {
+
+                    ev.preventDefault();
+                    console.log("andar to aa gfdsaye");
+                    var a = $(this).parent().parent().html();
+                    console.log(a);
+                    var s = a.indexOf("<");
+                    var e = a.indexOf("</");
+                    console.log(s + "  " + e);
+                    var final = a.substring(s + 4, e);
+
+                    console.log(final);
+
+                    $.ajax({
+                        // getOneRow/700
+                        url: "/withdraw/" + final, dataType: "html", success: function (result) {
+
+
+                            var resul = $(result).find('#mainDiv1');
+
+                            //console.log($(resul).find("#throw").html().length);
+
+                            b = $(resul).find("#throw").html() + "rishabh";
+                            console.log(b + "  " + b.length);
+                            if ((b.length) <= 17) {
+                                alert("No batch found !!");
+
+                            }
+                            else {
+                                $("#mainDiv1").html(resul);
+                            }
+                        }
+                    });
+
+                });
+
+
+                $("#upload-file-input").on("change", uploadFile);
+
+                console.log("ready haiiiiii");
+
+                $(".upload").click(
+                    function () {
+                        console.log("aa gye");
+                        this.value = 'Uploaded';
+                    }
+                );
+
+                $("#nab").click(function (ev) {
+
+                        ev.preventDefault();
+
+                        console.log("check");
+
+                        a = $("#nabid").val();
+                        console.log(a);
+                        $.ajax({
+                            // getOneRow/700
+                            url: "/getOneRow/" + a, dataType: "html", success: function (result) {
+
+
+                                var resul = $(result).find('#mainDiv1');
+
+                                //console.log($(resul).find("#throw").html().length);
+
+                                b = $(resul).find("#throw").html() + "rishabh";
+                                console.log(b + "  " + b.length);
+                                if ((b.length) <= 17) {
+                                    alert("No batch found !!");
+
+                                }
+                                else {
+                                    $("#mainDiv1").html(resul);
+                                }
+                            }
+                        });
+
+                    }
+                );
+
+
+                $("#v-pills-home-tab").click(function () {
+                    console.log("Andar to aa gye");
+
+                    $.ajax({
+                        url: "/SCGJDashboard", dataType: "html", success: function (result) {
+
+
+                            console.log(result);
+                            var test = $(result).find("#mainDiv").html();
+
+                            console.log(test);
+                            $("#mainDiv1").html(test);
+
+
+                        }
+                    });
+                });
+                $("#v-pills-profile-tab").click(function () {
+                    console.log("Andar to aa gye");
+
+                    $.ajax({
+                        url: "/getPlacementReportList", dataType: "html", success: function (result) {
+
+
+                            // console.log(result);
+
+
+                            var resul = $(result).find('#mainDiv1').html();
+
+
+                            //console.log(resul);
+
+                            $("#mainDiv1").html(resul);
+
+                        }
+                    });
+                });
+                $("#import-data").click(function () {
+                    console.log("Andar to aa gye import data ke");
+
+                    $.ajax({
+                        url: "/import", dataType: "html", success: function (result) {
+
+
+                            // console.log(result);
+
+                            console.log("result aa gye import ka");
+
+                            var resul = $(result).find('#mainDiv1').html();
+
+
+                            console.log(resul);
+
+                            $("#mainDiv1").html(resul);
+
+                        }
+                    });
+                });
+
+
+            });
+
+            function uploadFile() {
+                var ext = $('#upload-file-input').val().split('.').pop().toLowerCase();
+                console.log(typeof  ext);
+                if ($.inArray(ext, ['csv']) == -1) {
+                    alert('invalid extension!');
+                    $("#btn").val("Upload Again");
+                    $("#btn").css('background', 'red');
+                }
+
+                else {
+                    $.ajax({
+                        url: "/uploadFile",
+                        type: "POST",
+                        data: new FormData($("#upload-file-form")[0]),
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function () {
+                            // Handle upload success
+                            // ...
+                            $("#btn").val("Uploaded");
+                            $("#btn").css('background', 'green');
+                            console.log("success");
+
+                            count++;
+                            if (count >= 7) {
+                                //alert("All file uploaded Successfully");
+                                $("#addValue").html(" <h3>All files uploaded successfully.</h3><h4>Database Created.</h4>");
+                            }
+
+                        },
+                        error: function () {
+
+                            // Handle upload error
+                            // ...
+                        }
+                    });
+                }
+            }
+
+            function uploadFile2() {
+                var ext = $('#upload-file-input2').val().split('.').pop().toLowerCase();
+                console.log(typeof  ext);
+                if ($.inArray(ext, ['csv']) == -1) {
+                    alert('invalid extension!');
+                    $("#btn2").val("Upload Again");
+                    $("#btn2").css('background', 'red');
+                }
+
+                else {
+                    $.ajax({
+                        url: "/uploadFile",
+                        type: "POST",
+                        data: new FormData($("#upload-file-form2")[0]),
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function () {
+                            // Handle upload success
+                            // ...
+
+                            $("#btn2").val("Uploaded");
+                            $("#btn2").css('background', 'green');
+
+                            count++;
+                            if (count >= 7) {
+                                //        alert("All file uploaded Successfully");
+                                $("#addValue").html(" <h3>All files uploaded successfully.</h3><h4>Database Created.</h4>");
+                            }
+                        },
+                        error: function () {
+                            // Handle ucss('background', 'green');pload error
+                            // ...
+
+                        }
+                    });
+                }
+            }
+
+            function uploadFile3() {
+
+                var ext = $('#upload-file-input3').val().split('.').pop().toLowerCase();
+                console.log(typeof  ext);
+                if ($.inArray(ext, ['csv']) == -1) {
+                    alert('invalid extension!');
+                    $("#btn3").val("Upload Again");
+                    $("#btn3").css('background', 'red');
+
+                }
+
+                else {
+                    $.ajax({
+                        url: "/uploadFile",
+                        type: "POST",
+                        data: new FormData($("#upload-file-form3")[0]),
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function () {
+                            // Handle upload success
+                            // ...
+                            $("#btn3").val("Uploaded");
+                            $("#btn3").css('background', 'green');
+
+                            count++;
+                            if (count >= 7) {
+                                //    alert("All file uploaded Successfully");
+                                $("#addValue").html(" <h3>All files uploaded successfully.</h3><h4>Database Created.</h4>");
+                            }
+                        },
+                        error: function () {
+                            // Handle upload error
+                            // ...
+                            $("#btn3").val("Upload Again");
+                            $("#btn3").css('background', 'red');
+                        }
+                    });
+                }
+            }
+
+            function uploadFile4() {
+                var ext = $('#upload-file-input4').val().split('.').pop().toLowerCase();
+                console.log(typeof  ext);
+                if ($.inArray(ext, ['csv']) == -1) {
+                    alert('invalid extension!');
+                    $("#btn4").val("Upload Again");
+                    $("#btn4").css('background', 'red');
+                }
+
+                else {
+                    $.ajax({
+                        url: "/uploadFile",
+                        type: "POST",
+                        data: new FormData($("#upload-file-form4")[0]),
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function () {
+                            // Handle upload success
+                            // ...
+                            $("#btn4").val("Uploaded");
+                            $("#btn4").css('background', 'green');
+
+
+                            count++;
+                            if (count >= 7) {
+                                //    alert("All file uploaded Successfully");
+
+                                $("#addValue").html(" <h3>All files uploaded successfully.</h3><h4>Database Created.</h4>");
+                            }
+                        },
+                        error: function () {
+                            // Handle upload error
+                            // ...
+                            $("#btn4").val("Upload Again");
+                            $("#btn4").css('background', 'red'); // ...
+                        }
+                    });
+                }
+            }
+
+            function uploadFile5() {
+                var ext = $('#upload-file-input5').val().split('.').pop().toLowerCase();
+                console.log(typeof  ext);
+                if ($.inArray(ext, ['csv']) == -1) {
+                    alert('invalid extension!');
+                    $("#btn5").val("Upload Again");
+                    $("#btn5").css('background', 'red');
+                }
+
+                else {
+                    $.ajax({
+                        url: "/uploadFile",
+                        type: "POST",
+                        data: new FormData($("#upload-file-form5")[0]),
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function () {
+                            // Handle upload success
+                            // ...
+
+                            $("#btn5").val("Uploaded");
+                            $("#btn5").css('background', 'green');
+
+
+                            count++;
+                            if (count >= 7) {
+                                //alert("All file uploaded Successfully");
+                                $("#addValue").html(" <h3>All files uploaded successfully.</h3><h4>Database Created.</h4>");
+                            }
+                        },
+                        error: function () {
+                            // Handle upload error
+                            // ...
+                            $("#btn5").val("Upload Again");
+                            $("#btn5").css('background', 'red');
+                        }
+                    });
+                }
+            }
+
+            function uploadFile6() {
+                var ext = $('#upload-file-input6').val().split('.').pop().toLowerCase();
+                console.log(typeof  ext);
+                if ($.inArray(ext, ['csv']) == -1) {
+                    alert('invalid extension!');
+                    $("#btn6").val("Upload Again");
+                    $("#btn6").css('background', 'red');
+                }
+
+                else {
+                    $.ajax({
+                        url: "/uploadFile",
+                        type: "POST",
+                        data: new FormData($("#upload-file-form6")[0]),
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function () {
+                            // Handle upload success
+                            // ...
+                            $("#btn6").val("Uploaded");
+                            $("#btn6").css('background', 'green');
+                            count++;
+                            if (count >= 7) {
+                                // alert("All files uploaded Successfully");
+
+                                $("#addValue").html(" <h3>All files uploaded successfully.</h3><h4>Database Created.</h4>");
+                            }
+                        },
+                        error: function () {
+                            // Handle upload error
+                            // ...
+                            $("#btn6").val("Upload Again");
+                            $("#btn6").css('background', 'red');
+                        }
+                    });
+                }
+            }
+
+            function uploadFile7() {
+                var ext = $('#upload-file-input7').val().split('.').pop().toLowerCase();
+                console.log(typeof  ext);
+                if ($.inArray(ext, ['csv']) == -1) {
+                    alert('invalid extension!');
+                    $("#btn7").val("Upload Again");
+                    $("#btn7").css('background', 'red');
+                }
+
+                else {
+
+                    $.ajax({
+                        url: "/uploadFile",
+                        type: "POST",
+                        data: new FormData($("#upload-file-form7")[0]),
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function () {
+                            // Handle upload success
+                            // ...
+                            $("#btn7").val("Uploaded");
+                            $("#btn7").css('background', 'green');
+                            count++;
+                            if (count >= 7) {
+                                // alert("All file uploaded Successfully");
+                                $("#addValue").html(" <h3>All files uploaded successfully.</h3><h4>Database Created.</h4>");
+                            }
+                        },
+                        error: function () {
+                            // Handle upload error
+                            // ...
+                            $("#btn7").val("Upload Again");
+                            $("#btn7").css('background', 'red');
+                        }
+                    });
+                }
+            }
+
+            function uploadFile8() {
+                var ext = $('#upload-file-input8').val().split('.').pop().toLowerCase();
+                console.log(typeof  ext);
+                if ($.inArray(ext, ['csv']) == -1) {
+                    alert('invalid extension!');
+                    $("#btn8").val("Upload Again");
+                    $("#btn8").css('background', 'red');
+                }
+
+                else {
+                    $.ajax({
+                        url: "/uploadFile",
+                        type: "POST",
+                        data: new FormData($("#upload-file-form8")[0]),
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function () {
+                            // Handle upload success
+                            // ...
+                            $("#btn8").val("Uploaded");
+                            $("#btn8").css('background', 'green');
+                            count++;
+                            if (count >= 7) {
+                                $("#addValue").html(" <h3>All files uploaded successfully.</h3><h4>Database Created.</h4>");
+                            }
+                        },
+                        error: function () {
+                            // Handle upload error
+                            // ...
+                            $("#btn8").val("Upload Again");
+                            $("#btn8").css('background', 'red');
+                        }
+
+                    });
+                }
+            }
+
+
+    </script>
+
+    <SCRIPT type="text/javascript">
+        window.history.forward();
+        function noBack() { window.history.forward(); }
+
+    </SCRIPT>
+
+
+
+
+
 </head>
 
-<body>
+<body     onload="noBack();" onpageshow="if (event.persisted) noBack();">
 
 
 <div class="container" style="min-height: 100vh;min-width: 100%;position: relative">
@@ -82,210 +664,216 @@
         <div class="col-md-2" style="background-color: lightblue;padding-top: 20px;min-height: 100vh">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
-                   aria-controls="v-pills-home" aria-selected="true">Affiliation From</a>
+                   aria-controls="v-pills-home" aria-selected="true">Batch Assignment</a>
                 <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="" role="tab"
-                   aria-controls="v-pills-profile" aria-selected="false">Dashboard</a>
+                   aria-controls="v-pills-profile" aria-selected="false">Placement Report</a>
+                <a class="nav-link" id="import-data" data-toggle="pill" href="" role="tab"
+                   aria-controls="v-pills-profile" aria-selected="false">Import Data</a>
+
+                <a href="/Logouts">
+                <button class="btn btn-secondary">Logout</button>
+                </a>
             </div>
 
 
         </div>
-        <div class="col-md-10">
-            <h1><strong>Batch Assignment</strong></h1>
+        <div class="col-md-10" id="mainDiv">
+            <div id="mainDiv1">
+                <h1><strong>Batch Assignment</strong></h1>
 
-            <br>
-            <!-- Table 1 -->
-            <div>
-                <form class="form-inline">
+                <br>
+                <!-- Table 1 -->
+                <div>
+                    <form class="form-inline">
 
-                    <div style="margin-left: 10px" class="form-group mx-sm-3 mb-2">
-                        <span style="font-size: 20px ;"> <strong>Non-Assigned Batches</strong></span>
-                        <label for="inputPassword2" class="sr-only">Password</label>
-                        <input style="margin-left:30px " type="text" class="form-control" id="inputPassword2"
-                               placeholder="Batch ID">
+                        <div style="margin-left: 10px" class="form-group mx-sm-3 mb-2">
+                            <span style="font-size: 20px ;"> <strong>Non-Assigned Batches</strong></span>
+                            <label for="inputPassword2" class="sr-only">Password</label>
+                            <input id="nabid" style="margin-left:30px " type="text" class="form-control"
+                                   placeholder="Batch ID">
+                        </div>
+                        <button  id="nab" class="btn btn-primary mb-2">Search</button>
+                    </form>
+
+                    <div class="table-wrapper-scroll-y">
+
+
+                        <table style="width: 100%" class="table table-striped  table-bordered table-fixed ">
+                            <thead id="#thnsb">
+                            <tr>
+                                <th scope="col">Batch ID</th>
+                                <!--<th scope="col">Location</th>-->
+                                <th scope="col">End Date</th>
+                                <th scope="col">Assessment Date</th>
+                                <th>Assigned AB</th>
+                                <th>Assign</th>
+                            </tr>
+                            </thead>
+                            <tbody id="nsb">
+
+                            <tr th:each="item:${data}" id="throw">
+
+                                <th  th:text="${item.getBatchId()}"></th>
+                                <!--<td th:text="${item.getIs_assessed()}"></td>-->
+                                <td th:text="${item.getBatchEndDate()}"></td>
+                                <td th:text="${item.getAssessmentDate()}"></td>
+                                <td><select>
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="mercedes">Mercedes</option>
+                                    <option value="audi">Audi</option>
+                                </select></td>
+                                <td>
+                                    <button class="approve btn btn-success mr-2">Approve</button>
+
+                                    <button class="rejectt btn btn-warning">Reject</button></td> <!--<td th:text="${item.getStart_date()}"></td>-->
+
+                            </tr>
+
+
+                            </tbody>
+                        </table>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Search</button>
-                </form>
 
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">Batch ID</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">End Date</th>
-                        <th scope="col">Assessment Date</th>
-                        <th>Assigned AB</th>
-                        <th>Assign</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                <option selected>Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-
-                        </td>
-                        <td> Later</td>
-                    </tr>
-                    <tr th:each="item:${data}">
-
-                        <th scope="row" th:text="${item.getBatch_id()}"></th>
-                        <td th:text="${item.getIs_assessed()}"></td>
-                        <td th:text="${item.getEnd_date()}"></td>
-                        <td th:text="${item.getAssessment_date()}"></td>
-                        <td th:text="${item.getBatch_id()}"></td>
-
-                    </tr>
+                </div>
+                <br>
+                <br>
 
 
-                    </tbody>
-                </table>
+                <!--Table 2-->
+                <div>
+                    <form class="form-inline">
+
+                        <div style="margin-left: 10px" class="form-group mx-sm-3 mb-2">
+                            <span style="font-size: 20px ;"> <strong>Proposed Batch(es)</strong></span>
+                            <label for="inputPassword2" class="sr-only">Password</label>
+                            <input style="margin-left:60px " type="text" class="form-control" id="inputPassword2"
+                                   placeholder="Batch ID">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Search</button>
+                    </form>
+
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Batch ID</th>
+                            <!--<th scope="col">Location</th>-->
+                            <th scope="col">End Date</th>
+                            <th scope="col">Assessment Date</th>
+                            <th>Propsed AB</th>
+                            <th>Withdraw</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="item:${approve}" id="throw">
+
+                            <th  th:text="${item.getBatchId()}">   </th>
+                            <!--<td th:text="${item.getIs_assessed()}"></td>-->
+                            <td th:text="${item.getBatchEndDate()}"></td>
+                            <td th:text="${item.getAssessmentDate()}"></td>
+                            <td th:text="${item.getBatchId()}"></td>
+                            <td>
+
+
+                                <button class="withdraw btn btn-warning">Withdraw</button></td> <!--<td th:text="${item.getStart_date()}"></td>-->
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <!--Table 3-->
+                <div>
+                    <form class="form-inline">
+
+                        <div style="margin-left: 10px" class="form-group mx-sm-3 mb-2">
+                            <span style="font-size: 20px ;"> <strong>Approved Batch(es)</strong></span>
+                            <label for="inputPassword2" class="sr-only">Password</label>
+                            <input style="margin-left:60px " type="text" class="form-control" id="inputPassword2"
+                                   placeholder="Batch ID">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Search</button>
+                    </form>
+
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Batch ID</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">End Date</th>
+                            <th scope="col">Assessment Date</th>
+                            <th>Assigned AB</th>
+                            <th>Withdraw</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>
+                                Dummy
+
+                            </td>
+                            <td> Later</td>
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <!--Table 2-->
+                <div>
+                    <form class="form-inline">
+
+                        <div style="margin-left: 10px" class="form-group mx-sm-3 mb-2">
+                            <span style="font-size: 20px ;"> <strong>Rejected Batch(es)</strong></span>
+                            <label for="inputPassword2" class="sr-only">Password</label>
+                            <input style="margin-left:60px " type="text" class="form-control" id="inputPassword2"
+                                   placeholder="Batch ID">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Search</button>
+                    </form>
+
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Batch ID</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">End Date</th>
+                            <th scope="col">Assessment Date</th>
+                            <th>Rejected AB</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="item:${reject}" id="throw">
+
+                            <th  th:text="${item.getBatchId()}">   </th>
+                            <!--<td th:text="${item.getIs_assessed()}"></td>-->
+                            <td th:text="${item.getBatchEndDate()}"></td>
+                            <td th:text="${item.getAssessmentDate()}"></td>
+                            <td th:text="${item.getBatchId()}"></td>
+                            <td></td>
+
+                        </tbody>
+                    </table>
+
+                </div>
 
             </div>
-
-
-            <!--Table 2-->
-            <div>
-                <form class="form-inline">
-
-                    <div style="margin-left: 10px" class="form-group mx-sm-3 mb-2">
-                        <span style="font-size: 20px ;"> <strong>Proposed Batch(es)</strong></span>
-                        <label for="inputPassword2" class="sr-only">Password</label>
-                        <input style="margin-left:60px " type="text" class="form-control" id="inputPassword2"
-                               placeholder="Batch ID">
-                    </div>
-                    <button type="submit" class="btn btn-primary mb-2">Search</button>
-                </form>
-
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">Batch ID</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">End Date</th>
-                        <th scope="col">Assessment Date</th>
-                        <th>Propsed AB</th>
-                        <th>Withdraw</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            Dummy
-
-                        </td>
-                        <td> Later</td>
-                    </tr>
-
-
-                    </tbody>
-                </table>
-
-            </div>
-            <!--Table 3-->
-            <div>
-                <form class="form-inline">
-
-                    <div style="margin-left: 10px" class="form-group mx-sm-3 mb-2">
-                        <span style="font-size: 20px ;"> <strong>Approved Batch(es)</strong></span>
-                        <label for="inputPassword2" class="sr-only">Password</label>
-                        <input style="margin-left:60px " type="text" class="form-control" id="inputPassword2"
-                               placeholder="Batch ID">
-                    </div>
-                    <button type="submit" class="btn btn-primary mb-2">Search</button>
-                </form>
-
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">Batch ID</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">End Date</th>
-                        <th scope="col">Assessment Date</th>
-                        <th>Assigned AB</th>
-                        <th>Withdraw</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            Dummy
-
-                        </td>
-                        <td> Later</td>
-                    </tr>
-
-
-                    </tbody>
-                </table>
-
-            </div>
-
-            <!--Table 2-->
-            <div>
-                <form class="form-inline">
-
-                    <div style="margin-left: 10px" class="form-group mx-sm-3 mb-2">
-                        <span style="font-size: 20px ;"> <strong>Proposed Batch(es)</strong></span>
-                        <label for="inputPassword2" class="sr-only">Password</label>
-                        <input style="margin-left:60px " type="text" class="form-control" id="inputPassword2"
-                               placeholder="Batch ID">
-                    </div>
-                    <button type="submit" class="btn btn-primary mb-2">Search</button>
-                </form>
-
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">Batch ID</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">End Date</th>
-                        <th scope="col">Assessment Date</th>
-                        <th>Rejected AB</th>
-                        <th>Comment</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            Dummy
-
-                        </td>
-                        <td> Later</td>
-                    </tr>
-
-
-                    </tbody>
-                </table>
-
-            </div>
-
         </div>
     </div>
 
     <footer class="footer">
         <div class="row " style="min-width: 100%">
 
-            <div class="col-md-12" style="background-color: darkseagreen;padding: 5px;font-size:12px;font-family: Georgia"
+            <div class="col-md-12"
+                 style="background-color: darkseagreen;padding: 5px;font-size:12px;font-family: Georgia"
                  align="center">
                 <a href="http://sscgj.in/" style="color: black">HOME</a> &nbsp&nbsp|&nbsp&nbsp
                 <a href="http://sscgj.in/?page_id=6" style="color: black">ABOUT US</a> &nbsp&nbsp|&nbsp&nbsp
@@ -307,8 +895,6 @@
     </footer>
 
 </div>
-
-
 
 
 </div>

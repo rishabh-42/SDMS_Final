@@ -1,0 +1,532 @@
+<!Doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+          integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>**put your title here**</title>
+
+    <link rel="icon" href="img/SCGJ.png" type="image/gif" sizes="16x16">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+
+
+    <style type="text/css">
+
+
+        .table-wrapper-scroll-y {
+            display: block;
+
+            overflow-x: auto;
+            max-height: 300px;
+            overflow-y: auto;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+        }
+    </style>
+    <script type="text/javascript">
+
+        function upload(){
+            console.log("aaaaa");
+        }
+
+        $(document).ready(function () {
+
+
+
+
+            $("#rishabh").click(function (ev) {
+                ev.preventDefault();
+
+            });
+
+
+            console.log("ready hai");
+
+
+            $("#nab").click(function (ev) {
+
+                    ev.preventDefault();
+
+                    console.log("check");
+
+                    a = $("#nabid").val();
+                    console.log(a);
+                    $.ajax({
+                        // getOneRow/700
+                        url: "/getOneRow/" + a, dataType: "html", success: function (result) {
+
+
+                            var resul = $(result).find('#mainDiv1');
+
+                            //console.log($(resul).find("#throw").html().length);
+
+                            b = $(resul).find("#throw").html() + "rishabh";
+                            console.log(b + "  " + b.length);
+                            if ((b.length) <= 17) {
+                                alert("No batch found !!");
+
+                            }
+                            else {
+                                $("#mainDiv1").html(resul);
+                            }
+                        }
+                    });
+
+                }
+            );
+
+
+            $("#v-pills-home-tab").click(function () {
+                console.log("Andar to aa gye");
+
+                $.ajax({
+                    url: "/getPlacementReport", dataType: "html", success: function (result) {
+
+
+                        console.log(result);
+                        var test = $(result).find("#mainDiv").html();
+
+                        console.log(test);
+                        $("#mainDiv1").html(test);
+
+
+                    }
+                });
+            });
+            $("#v-pills-profile-tab").click(function () {
+                console.log("Andar to aa gye");
+
+                $.ajax({
+                    url: "/getPlacementReportList", dataType: "html", success: function (result) {
+
+
+                        // console.log(result);
+
+
+                        var resul = $(result).find('#mainDiv1').html();
+
+
+                        //console.log(resul);
+
+                        $("#mainDiv1").html(resul);
+
+                    }
+                });
+            });
+
+
+        });
+
+        function uploadFilem() {
+            $.ajax({
+                url: "/uploadFile",
+                type: "POST",
+                data: new FormData($("#upload-file-formm")),
+                enctype: 'multipart/form-data',
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function () {
+                    // Handle upload success
+                    // ...
+
+                    console.log("success");
+                },
+                error: function () {
+                    // Handle upload error
+                    // ...
+                    console.log("error h");
+                }
+            });
+
+        }
+
+        // function uploadFile() {
+        //     $.ajax({
+        //         url: "/uploadFile",
+        //         type: "POST",
+        //         data: new FormData($("#upload-file-form")),
+        //         enctype: 'multipart/form-data',
+        //         processData: false,
+        //         contentType: false,
+        //         cache: false,
+        //         success: function () {
+        //             // Handle upload success
+        //             // ...
+        //
+        //             console.log("success");
+        //         },
+        //         error: function () {
+        //             // Handle upload error
+        //             // ...
+        //             console.log("error h");
+        //         }
+        //     });
+        // }
+
+        function test() {
+            console.log("hello");
+        }
+
+
+</script>
+</head>
+
+<body>
+
+
+<div class="container" style="min-height: 100vh;min-width: 100%;position: relative">
+
+    <div class="row" style="position: relative;">
+
+        <div class="col-md-4" style="padding: 10px 20px 5px 0px;"><a href="http://sscgj.in/">
+            <img src="img/SCGJLogo.png" width="90%"></a>
+        </div>
+        <div class="col-md-5" style="padding: 20px 10px 5px 10px; ">
+
+            <div style="height: 25px"></div>
+            <div id="mycarousel" class="carousel slide" data-ride="carousel"
+                 style="position: relative;height:60px;box-shadow: 2px 2px 15px 3px lightgray;border-radius: 10px;padding: 10px">
+                <div class="carousel-inner">
+                    <div class="carousel-item active row">
+                        <a href="http://www.mnre.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float:left;padding: 0px"
+                                 src="img/t1.png"></a>
+                        <a href="http://powermin.nic.in/en">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float: left;padding: 0px"
+                                 src="img/t2.png"></a>
+                    </div>
+                    <div class="carousel-item row">
+                        <a href="http://powermin.nic.in/en">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float:left;padding: 0px"
+                                 src="img/t2.png"></a>
+                        <a href="http://msde.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float: left;padding: 0px"
+                                 src="img/t3.png"></a>
+                    </div>
+                    <div class="carousel-item row">
+                        <a href="http://msde.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float:left;padding: 0px"
+                                 src="img/t3.png"></a>
+                        <a href="http://www.mnre.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float: left;padding: 0px"
+                                 src="img/t1.png"></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-3" style="padding: 10px 0px 5px 20px">
+            <div class="row" style="margin: 5px">
+                <div class="col-md-4"><img src="img/skill-india.png" width="100%"></div>
+                <div class="col-md-8"><img src="img/nsdc.png" width="100%"></div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+    <div class="row"
+         style="background-color: whitesmoke;position: relative;min-height:100vh;padding-top: 6px;overflow-y: visible ">
+
+
+        <div class="col-md-2" style="background-color: lightblue;padding-top: 20px;min-height: 100vh">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+                   aria-controls="v-pills-home" aria-selected="true">Batch Assignment</a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="" role="tab"
+                   aria-controls="v-pills-profile" aria-selected="false">Placement Report</a>
+            </div>
+
+
+        </div>
+        <div class="col-md-10" id="mainDiv">
+
+            <div style="height: 10px"></div>
+            <div class="col-md-9 col-lg-9">
+                <div id="mainDiv1">
+                <h3 >Import Data</h3>
+
+                <div style="height: 20px"></div>
+                <!--<div class="uploadSection" >-->
+
+                   <!--<div>-->
+                       <!--<div class="dropdownBatch uploadSection1 " style="float: left">-->
+                        <!--<div class="btn-group">-->
+                            <!--<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                            <!--Select Type-->
+                            <!--</button>-->
+                            <!--<div class="dropdown-menu">-->
+                                <!--<div class="dropdown-item" href="#">Assessment Agency</div>-->
+                                <!--<div class="dropdown-item" href="#">Assessors</div>-->
+                                <!--<div class="dropdown-item" href="#">Training Partner </div>-->
+                                <!--<div class="dropdown-item" href="#">Training Centres</div>-->
+                                <!--<div class="dropdown-item" href="#">Batch Deatils</div>-->
+                                <!--<div class="dropdown-item" href="#">Candidate Employment</div>-->
+                                <!--<div class="dropdown-item" href="#">Trainers</div>-->
+
+
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--&nbsp-->
+                    <!--<div class="searchBatch uploadSection1" style="float: left; margin-left: 20px">-->
+                        <!--<form class="form-inline my-2 my-lg-0">-->
+                            <!--&lt;!&ndash; <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+                            <!--<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button> &ndash;&gt;-->
+                            <!--<input class="form-control mr-sm-2" type="file" accept=".csv" placeholder="Search"/>-->
+                            <!--<button class="btn btn-outline-info my-2 my-sm-0" type="submit">UPLOAD</button>-->
+                        <!--</form>-->
+                    <!--</div>-->
+                   <!--</div>-->
+                <!--</div>-->
+                    <form class="form-control" id="upload-file-form7">
+                        <label for="upload-file-input7">Training Partner</label>
+                        <input id="upload-file-input7" type="file" style="margin-left: 70px" name="uploadfile" accept="*" />
+                        <input class="btn btn-primary float-right upload" id="btn7" type="button" onclick="uploadFile7()"  value="Upload File">
+                    </form>
+
+                    <form class="form-control" id="upload-file-form5">
+                        <label for="upload-file-input5">Training Centre</label>
+                        <input id="upload-file-input5" type="file" style="margin-left: 69px" name="uploadfile" accept="*" />
+                        <input class="btn btn-primary float-right upload" id="btn5" type="button" onclick="uploadFile5()"  value="Upload File">
+                    </form>
+
+                    <form class="form-control" id="upload-file-form">
+                        <label for="upload-file-input">Assessment Agency</label>
+
+
+                        <input id="upload-file-input"   type="file" style="margin-left: 30px" name="uploadfile" accept="*" />
+
+                        <input class="btn btn-primary float-right upload"  id="btn" type="button" onclick="uploadFile()"  value="Upload File">
+
+                    </form>
+
+
+                    <form class="form-control" id="upload-file-form2">
+                        <label for="upload-file-input2">Assessor</label>
+                        <input id="upload-file-input2" type="file" style="margin-left: 115px" name="uploadfile" accept="*" />
+                        <input class="btn btn-primary float-right upload" type="button" id="btn2" onclick="uploadFile2()"  value="Upload File">
+                    </form>
+                    <form class="form-control" id="upload-file-form3">
+                        <label for="upload-file-input3">Batch</label>
+                        <input id="upload-file-input3" type="file"  style="margin-left: 140px" name="uploadfile" accept=".csv" />
+                        <input class="btn btn-primary float-right upload" type="button" id="btn3"onclick="uploadFile3()"  value="Upload File">
+                    </form>
+                    <form class="form-control" id="upload-file-form4">
+                        <label for="upload-file-input4">Candidate</label>
+                        <input id="upload-file-input4" type="file" style="margin-left: 110px" name="uploadfile" accept="*" />
+                        <input class="btn btn-primary float-right upload" type="button" id="btn4"onclick="uploadFile4()"  value="Upload File">
+                    </form>
+
+                    <!--<form class="form-control" id="upload-file-form6">-->
+                        <!--<label for="upload-file-input6">Employer</label>-->
+                        <!--<input id="upload-file-input6" type="file" style="margin-left: 118px" name="uploadfile" accept="*" />-->
+                        <!--<input class="btn btn-primary float-right" type="button" onclick="uploadFile6()"  value="Upload File">-->
+                    <!--</form>-->
+
+                    <form class="form-control" id="upload-file-form8">
+                        <label for="upload-file-input8">Trainer</label>
+                        <input id="upload-file-input8" type="file" style="margin-left: 130px" name="uploadfile" accept=".csv" />
+                        <input class="btn btn-primary float-right" type="button" id="btn8"onclick="uploadFile8() " onchange="return ValidateSingleInput(this)" value="Upload File">
+                    </form>
+
+
+
+
+
+                    <div id="addValue"style="height: 40px">
+
+                    </div>
+
+                    <br>
+                <div style="height: 30px"></div>
+                    <div style="margin-left: 100px"> </div>
+                <div class="uploadHistorySection">
+
+                    <p>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Import History</button>
+                    </p>
+                    <div class="row">
+                        <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample1">
+                                <div class="card card-body">
+                                    <table class="table-primary">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">Total No. Of Candidates Enrolled</th>
+                                            <th scope="col">Total No. Of Candidates Assessed</th>
+                                            <th scope="col">Total No. Of Candidates Certified</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td class="table-info">45000</td>
+                                            <td class="table-info">26683</td>
+                                            <td class="table-info">37983</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="searchBatchSection">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="true" aria-controls="multiCollapseExample2">Search by id</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="collapse multi-collapse" id="multiCollapseExample2">
+                                    <div class="card card-body">
+                                        <table class="table-primary">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Total No. Of Candidates Enrolled</th>
+                                                <th scope="col">Total No. Of Candidates Assessed</th>
+                                                <th scope="col">Total No. Of Candidates Certified</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td class="table-info">45000</td>
+                                                <td class="table-info">26683</td>
+                                                <td class="table-info">37983</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="certificateUploadHistory">
+                        <p>
+
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Certificate upload history</button>
+
+                        </p>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="collapse multi-collapse" id="multiCollapseExample3">
+                                    <div class="card card-body">
+                                        <table class="table-primary">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">S.No.</th>
+                                                <th scope="col">Batch ID</th>
+                                                <th scope="col">Batch End Date</th>
+                                                <th scope="col">File Name</th>
+                                                <th scope="col">Uploaded By</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">View uploaded file</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td class="table-info">45000</td>
+                                                <td class="table-info">26683</td>
+                                                <td class="table-info">37983</td>
+                                                <td class="table-info">45000</td>
+                                                <td class="table-info">26683</td>
+                                                <td class="table-info">37983</td>
+                                                <td class="table-info">37983</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </di
+
+    <footer class="footer">
+        <div class="row " style="min-width: 100%">
+
+            <div class="col-md-12"
+                 style="background-color: darkseagreen;padding: 5px;font-size:12px;font-family: Georgia"
+                 align="center">
+                <a href="http://sscgj.in/" style="color: black">HOME</a> &nbsp&nbsp|&nbsp&nbsp
+                <a href="http://sscgj.in/?page_id=6" style="color: black">ABOUT US</a> &nbsp&nbsp|&nbsp&nbsp
+                <a href="http://sscgj.in/?page_id=64" style="color: black">INDUSTRY CONNECT</a> &nbsp&nbsp|&nbsp&nbsp
+                <a href="http://sscgj.in/?page_id=772" style="color: black">NATIONAL STANDARDS</a> &nbsp&nbsp|&nbsp&nbsp
+                <a href="http://sscgj.in/?page_id=12" style="color: black">AFFILIATIONS</a> &nbsp&nbsp|&nbsp&nbsp
+                <a href="http://sscgj.in/?page_id=14" style="color: black">PUBLICATIONS</a> &nbsp&nbsp|&nbsp&nbsp
+                <a href="http://sscgj.in/?page_id=16" style="color: black">STATE LINKAGES </a>
+            </div>
+
+
+            <div class="col-md-12" align="center"
+                 style="background-color: cadetblue;width: 100%;padding: 6px;font-size: smaller">
+                Copyright &copy; 2016 sscgj.in - All Rights Reserved.
+
+            </div>
+
+        </div>
+    </footer>
+
+</div>
+
+
+</div>
+
+
+</body>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+</script>
+<script>
+    !function ($) {
+        $(function () {
+            // carousel demo
+            $('#myCarousel').carousel()
+        })
+    }(window.jQuery)
+
+</script>
+</html>
+

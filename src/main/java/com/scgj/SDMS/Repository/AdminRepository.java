@@ -1,7 +1,6 @@
-package com.scgj.SDMS.Controllers;
+package com.scgj.SDMS.Repository;
 
 import com.scgj.SDMS.Models.Batch;
-import com.scgj.SDMS.Models.Batches;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -15,8 +14,6 @@ public interface AdminRepository extends CrudRepository<Batch,Integer> {
 //
 
     List<Batch> findAll();
-
-
 
 
 

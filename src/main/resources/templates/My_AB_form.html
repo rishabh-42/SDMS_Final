@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+          integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Affiliation Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="img/SCGJ.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <script>
+    $(document).ready(function() {
+
+    $("#upload-file-input").on("change", uploadFile); });
+
+    function uploadFile() {
+        console.log("DEBUG");
+        $.ajax({
+    url: "/uploadFile",
+    type: "POST",
+    data: new FormData($("#form")[0]),
+    enctype: 'multipart/form-data',
+    processData: false,
+    contentType: false,
+    cache: false,
+    success: function () {
+        console.log("whjhjhh");
+    // Handle upload success
+    // ...
+    },
+    error: function () {
+    // Handle upload error
+    // ...
+    }
+    });
+    } // function uploadFile
+    </script >
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+
+    </script>
+
+</head>
+<body onload="noBack();" onpageshow="if(event.persisted)   noBack();">
+
+<form action="#" th:action="@{/ABForm}"  method="post" id="form">
+
+
+<div class="container" style="min-height: 100vh;min-width: 100%;position: relative" >
+
+    <div class="row" style="position: relative;">
+
+        <div class="col-md-4" style="padding: 10px 20px 5px 0px;"><a href="http://sscgj.in/">
+            <img src="img/SCGJLogo.png" width="90%"></a>
+        </div>
+        <div class="col-md-5" style="padding: 20px 10px 5px 10px; ">
+
+            <div id="mycarousel" class="carousel slide" data-ride="carousel"
+                 style="position: relative;height:60px;box-shadow: 2px 2px 15px 3px lightgray;border-radius: 10px;padding: 10px">
+                <div class="carousel-inner">
+                    <div class="carousel-item active row">
+                        <a href="http://www.mnre.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float:left;padding: 0px"
+                                 src="img/t1.png"></a>
+                        <a href="http://powermin.nic.in/en">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float: left;padding: 0px"
+                                 src="img/t2.png"></a>
+                    </div>
+                    <div class="carousel-item row">
+                        <a href="http://powermin.nic.in/en">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float:left;padding: 0px"
+                                 src="img/t2.png"></a>
+                        <a href="http://msde.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float: left;padding: 0px"
+                                 src="img/t3.png"></a>
+                    </div>
+                    <div class="carousel-item row">
+                        <a href="http://msde.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float:left;padding: 0px"
+                                 src="img/t3.png"></a>
+                        <a href="http://www.mnre.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float: left;padding: 0px"
+                                 src="img/t1.png"></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-3" style="padding: 10px 0px 5px 20px">
+            <div class="row" style="margin: 5px">
+                <div class="col-md-4"><img src="img/skill-india.png" width="100%"></div>
+                <div class="col-md-8"><img src="img/nsdc.png" width="100%"></div>
+            </div>
+        </div>
+    </div><br>
+
+
+    <div class="row"
+         style="background-color: whitesmoke;position: relative;min-height:100vh;padding-top: 6px;overflow-y: visible ">
+
+
+        <div class="col-md-2" style="background-color: lightblue;padding-top: 20px;min-height: 100vh">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+                   aria-controls="v-pills-home" aria-selected="true">Affiliation Form</a>
+                <a class="nav-link" id="v-pills-profile-tab"  href="C:\Users\Vishakha\Desktop\My_project_sdms\src\AB_Dashboard.html"
+                   aria-selected="false">Dashboard</a>
+                <a class="nav-link"  href="/logout3"><button type="button" style="padding-left:0px">logout</button> </a>
+            </div>
+
+
+
+        </div>
+        <div class="col-md-10">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                     aria-labelledby="v-pills-home-tab">
+                    <div class="container-fluid" align="center">
+                        <p>
+                        <div class="row">
+                            <div class="col-md-7" style="font-size: small;vertical-align: middle">Please read the
+                                instructions before filling out the form in order to
+                                apply as Assessment Body
+                            </div>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2">
+                                <a>Guidelines</a></div>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="accordion" id="accordionExample">
+                    <!-- BASIC INFO STARTS HERE -->
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0" align="center">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    STEP 1:BASIC INFORMATION
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body row">
+                                <div class="col-md-5">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label for="abName" class="col-form-label">Assessment Body Name <sup>
+                                                <i class="fa fa-asterisk" style="font-size:9px;color:red"></i></sup></label>
+                                        </div>
+
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control form-control-sm" id="abname"  name="abName" required>
+
+                                        </div>
+                                       <!-- <div class="col-sm-4">
+                                            <label for="Address" class="col-form-label">Address <sup>
+                                                <i class="fa fa-asterisk" style="font-size:9px;color:red"></i></sup></label>
+                                        </div>-->
+                                       <!-- <div class="col-sm-8">
+                                            <input type="text" class="form-control form-control-sm" id="Address" >
+                                        </div>-->
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label for="City" class="col-form-label">City </label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control form-control-sm" id="City"   name="abCity">
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label for="abState" class="col-form-label">State </label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <select id="abState" class="form-control form-control-sm" name="abState" >
+                                                <option value="Andaman and Nicobar Islands" selected="">Andaman and
+                                                    Nicobar Islands
+                                                </option>
+                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                <option value="Assam">Assam</option>
+                                                <option value="Bihar">Bihar</option>
+                                                <option value="Chandigarh">Chandigarh</option>
+                                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                                <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli
+                                                </option>
+                                                <option value="Daman and Diu">Daman and Diu</option>
+                                                <option value="Delhi">Delhi</option>
+                                                <option value="Goa">Goa</option>
+                                                <option value="Gujarat">Gujarat</option>
+                                                <option value="Haryana">Haryana</option>
+                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                <option value="Jharkhand">Jharkhand</option>
+                                                <option value="Karnataka">Karnataka</option>
+                                                <option value="Kerala">Kerala</option>
+                                                <option value="Lakshadweep">Lakshadweep</option>
+                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                <option value="Maharashtra">Maharashtra</option>
+                                                <option value="Manipur">Manipur</option>
+                                                <option value="Meghalaya">Meghalaya</option>
+                                                <option value="Mizoram">Mizoram</option>
+                                                <option value="Nagaland">Nagaland</option>
+                                                <option value="Orissa">Orissa</option>
+                                                <option value="Pondicherry">Pondicherry</option>
+                                                <option value="Punjab">Punjab</option>
+                                                <option value="Rajasthan">Rajasthan</option>
+                                                <option value="Sikkim">Sikkim</option>
+                                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                                <option value="Tamil Nadu">Telangana</option>
+                                                <option value="Tripura">Tripura</option>
+                                                <option value="Uttaranchal">Uttarakhand</option>
+                                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                <option value="West Bengal">West Bengal</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label for="abPincode" class="col-form-label">Pincode</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="number" class="form-control form-control-sm" id="abPincode" name="abPincode" >
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-5">
+
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label for="spocname" class="col-form-label">SPOC&nbsp;Name <sup>
+                                                <i class="fa fa-asterisk" style="font-size:9px;color:red"></i></sup></label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" size="10" class="form-control form-control-sm" id="spocname" name="spocName" required>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label for="Mobile" class="col-form-label">Mobile&nbsp;No.</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="number" size="10" class="form-control form-control-sm" id="Mobile" name="mobileNo">
+                                        </div>
+                                    </div>
+                                   <!-- <br>
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label for="Landline" class="col-form-label">Landline&nbsp;No. <sup>
+                                                <i class="fa fa-asterisk" style="font-size:9px;color:red"></i></sup></label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control form-control-sm" id="Landline" >
+                                        </div>
+                                    </div>-->
+                                    <br>
+
+                                  <!--  <div class="row">
+                                        <div class="col-sm-4">
+                                            <label for="Fax" class="col-form-label">Fax&nbsp;No. <sup>
+                                                <i class="fa fa-asterisk" style="font-size:9px;color:red"></i></sup></label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control form-control-sm" id="Fax" >
+                                        </div>
+                                    </div>
+                                    <br>-->
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label for="Website" class="col-form-label">Website</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control form-control-sm" id="Website" name="website">
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Basic INFO ENDS HERE -->
+                    <!-- AGENCY -->
+
+
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0" align="center">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    STEP 2: AGENCY DETAILS
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <label for="YearEstablished" class="col-form-label">Year of establishment
+                                            </label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <select id="YearEstablished" class="form-control form-control-sm" name="estdYear">
+                                            <option value="2005" selected="">2005</option>
+                                            <option value="2006">2006</option>
+                                            <option value="2007">2007</option>
+                                            <option value="2008">2008</option>
+                                            <option value="2009">2009</option>
+                                            <option value="2010">2010</option>
+                                            <option value="2011">2011</option>
+                                            <option value="2012">2012</option>
+                                            <option value="2013">2013</option>
+                                            <option value="2014">2014</option>
+                                            <option value="2015">2015</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2017">2017</option>
+                                            <option value="2018">2018</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <label class="col-form-label">Assessment Experience in any technical domain
+                                        </label></div>
+                                    <div class="col-sm-4">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <input type="radio" id="radio1"  name="agencyExperience" value="true"> Yes
+
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="radio" id="radio2"  name="agencyExperience" value="false"> No
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <label class="col-form-label">Is the institution NSDC Funded?
+                                        </label></div>
+                                    <div class="col-sm-4">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <input type="radio" name="nsdcFund" value="Yes" > Yes
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="radio" name="nsdcFund" value="No"> No
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <label for="PAN" class="col-form-label">PAN (Personal Account Number)</label></div>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control form-control-sm" id="PAN" name="pan" >
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <label for="GSTN" class="col-form-label">GSTN (Goods and Service Tax Number)<sup>
+                                            <i class="fa fa-asterisk" style="font-size:9px;color:red"></i></sup>
+                                        </label></div>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control form-control-sm" id="GSTN" name="gstn" >
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <label class="col-form-label">Recognised with any govt./Pvt. Agency? <sup>
+                                            <i class="fa fa-asterisk" style="font-size:9px;color:red"></i></sup>
+                                        </label></div>
+                                    <div class="col-sm-4">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <input type="radio" name="isRecognised" value="Yes" > Yes
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="radio" name="isRecognised" value="No"> No
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <label class="col-form-label">Whether affiliated with any Skill Sector Council.  <sup>
+                                            <i class="fa fa-asterisk" style="font-size:9px;color:red"></i></sup>
+                                        </label></div>
+                                    <div class="col-sm-4">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <input type="radio" name="sscAffiliated" value="Yes" > Yes
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="radio" name="sscAffiliated" value="No"> No
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- AGENCY ENDS -->
+                    <!-- MANAGERIAL -->
+
+                    <div class="card">
+                        <div class="card-header" id="headingthree">
+                            <h5 class="mb-0" align="center">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    STEP 3: MANAGERIAL DETAILS
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <h5>Details of Directors and Management Team Members</h5>
+
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <input type="text" class="form-control form-control-sm" id="Name"  placeholder="Name" name="mdName"required>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="text" class="form-control form-control-sm" id="Designation "  placeholder="Designation" name="mdDesignation">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control form-control-sm" id="contact"  placeholder="Contact Number" name="mdContactNo">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="email" class="form-control form-control-sm" id="emailid"  placeholder="Email Id" name="mdEmail">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="text" class="form-control form-control-sm" id="eduqual"  placeholder="Educational qualification" name="mdQualification" required>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control form-control-sm" id="exp"  placeholder="Experience" name="mdExperience" required>
+                                        </div>
+                                        <div class="col-2" id="upload-file-form">
+                                            <!-- Upload file form -->
+                                            <!--<form id="upload-file-form">-->
+                                                <label for="upload-file-input">Upload your file:</label>
+                                                <input id="upload-file-input" type="file" name="uploadfile" accept="*" />
+                                        <!--    </form>-->
+                                        </div>
+                                    </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Managerial ENDS -->
+                    <!-- Assessment Staff DETAILS -->
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h5 class="mb-0" align="center">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                    STEP 4: ASSESSMENT STAFF DETAILS
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <h5>Total Assessors</h5>
+
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <input type="text" class="form-control form-control-sm" id="noOfAssessors"  placeholder="Name of assessor" name="noOfAssessors" required>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control form-control-sm" id="technicalSector"  placeholder="Technical Sector" name="technicalSector" required>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control form-control-sm" id="nonTechnicalSector"  placeholder="Non-Technical sector" name="nonTechnicalSector" required>
+                                        </div>
+
+                                    </div>
+
+                                <h5>SCGJ Certified Assessors</h5>
+
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <input type="text" class="form-control form-control-sm" id="certifiedAssessorName"  placeholder="Name"  name="certifiedAssessorName">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="text" class="form-control form-control-sm" id="certifiedJobRole"  placeholder="job Role" name="certifiedJobRole">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="text" class="form-control form-control-sm" id="certifiedDesignation"  placeholder="Designation" name="certifiedDesignation">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control form-control-sm" id="certifiedContac"  placeholder="Contact No."  name="certifiedContact">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control form-control-sm" id="certifiedExperience"  placeholder="Experience" name="certifiedExperience">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="text" class="form-control form-control-sm" id="certifiedQualification"  placeholder="Qualification" name="certifiedQualification">
+                                        </div>
+
+                                    </div>
+
+
+                                <h5>Regional Office Details</h5>
+
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <input type="text" class="form-control form-control-sm" id="RegionalOfficeName"  placeholder="OfficeName" name="RegionalOfficeName">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="text" class="form-control form-control-sm" id="RegionalAddress"  placeholder="Address" name="RegionalAddress">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="text" class="form-control form-control-sm" id="RegionalState"  placeholder="State" name="RegionalState">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control form-control-sm" id="RegionalPincode"  placeholder="Pincode" name="RegionalPincode">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control form-control-sm" id="RegionalPhoneNumber"  placeholder="Phone Number" name="RegionalPhoneNumber">
+                                        </div>
+
+                                    </div>
+
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- Assessmnt staff details ends -->
+
+                </div>
+            </div>
+
+            <!-- TERMS AND CONDITIONS -->
+            <div class="row">
+                <div class="col-sm-1">
+                    <input type="checkbox" name="Library" id="Declaration" required></div>
+                <div class="col-sm-11">
+                    I hereby, declare that the details mentioned above are true and best of
+                    my knowledge. In case of any of the above information is found false or
+                    untrue SCGJ can take strict action.
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
+                    <input type="checkbox" name="Library" id="Declaration1" required></div>
+                <div class="col-sm-11">
+                    I AGREE, the <a href="http://localhost:63342/SDMSProjectFinal/SDMS_main/com/scgj/SDMS/TP_AffForm.html">Terms &amp; Conditions</a>
+                </div>
+            </div>
+            <br><br>
+
+
+
+
+
+
+            <!-- TERMS AND CONDITIONS -->
+
+            <!-- SUBMIT AND DRAFT BUTTON -->
+
+            <div class="row">
+                <div class="col-sm-8"></div>
+                <!--<div class="col-sm-2">
+                    <button type="button" class="btn btn-warning">Save as Draft</button>
+                </div>-->
+                <div class="col-sm-2" >
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </div>
+
+
+
+
+            <!-- SUBMIT AND DRAFT BUTTON ENDS-->
+        </div>
+
+
+
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+    <div class="row " style="min-width: 100%">
+
+        <div class="col-md-12" style="background-color: darkseagreen;padding: 5px;font-size:12px;font-family: Georgia"
+             align="center">
+            <a href="http://sscgj.in/" style="color: black">HOME</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=6" style="color: black">ABOUT US</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=64" style="color: black">INDUSTRY CONNECT</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=772" style="color: black">NATIONAL STANDARDS</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=12" style="color: black">AFFILIATIONS</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=14" style="color: black">PUBLICATIONS</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=16" style="color: black">STATE LINKAGES </a>
+        </div>
+
+
+        <div class="col-md-12" align="center"
+             style="background-color: cadetblue;width: 100%;padding: 6px;font-size: smaller">
+            Copyright &copy; 2016 sscgj.in - All Rights Reserved.
+
+        </div>
+
+    </div></footer>
+
+
+</div>
+
+
+</form >
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+</script>
+<!--<script>
+    !function ($) {
+        $(function () {
+            // carousel demo
+            $('#myCarousel').carousel()
+        })
+    }(window.jQuery)
+
+</script>-->
+
+</body>
+</html>

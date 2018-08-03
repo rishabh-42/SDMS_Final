@@ -1,61 +1,26 @@
 package com.scgj.SDMS.Models;
 
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "application")
 public class Application {
 
     @Id
-    @Column(name = "applicationId")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int applicationId;
 
-    @Column(name = "type")
-    private String type;
-
     @Column(name = "status")
-    private String status;
+    private
+    String status;
 
     @Column(name = "comment")
     private String comment;
 
-    @Column(name = "isRejected")
-    private String isRejected;
-
-
-    public Application() {
-    }
-
-    public Application(int applicationId, String type, String status, String comment, String isRejected) {
-        this.applicationId = applicationId;
-        this.type = type;
-        this.status = status;
-        this.comment = comment;
-        this.isRejected = isRejected;
-    }
-
-    public int getApplicationId() {
-        return applicationId;
-    }
-
-    public void setApplicationId(int applicationId) {
-        this.applicationId = applicationId;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public Application(int sid) {
+        System.out.println("uaha to taya me ");
+        this.applicationId=sid;
     }
 
     public String getComment() {
@@ -66,11 +31,34 @@ public class Application {
         this.comment = comment;
     }
 
-    public String getIsRejected() {
-        return isRejected;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User userId;
+
+    public int getApplicationId() {
+        return applicationId;
     }
 
-    public void setIsRejected(String isRejected) {
-        this.isRejected = isRejected;
+    public void setApplicationId(int applicationId) {
+        this.applicationId = applicationId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public User getUserId() {
+        return userId;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
+    }
+
+    public Application() {
     }
 }

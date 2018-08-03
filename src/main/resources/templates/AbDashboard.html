@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+          integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>AB_Dashboard</title>
+    <link rel="icon" href="img/SCGJ.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+
+<div class="container" style="min-height: 100vh;min-width: 100%;position: relative" >
+
+    <div class="row" style="position: relative;">
+
+        <div class="col-md-4" style="padding: 10px 20px 5px 0px;"><a href="http://sscgj.in/">
+            <img src="img/SCGJLogo.png" width="90%"></a>
+        </div>
+        <div class="col-md-5" style="padding: 20px 10px 5px 10px; ">
+
+            <div id="mycarousel" class="carousel slide" data-ride="carousel"
+                 style="position: relative;height:60px;box-shadow: 2px 2px 15px 3px lightgray;border-radius: 10px;padding: 10px">
+                <div class="carousel-inner">
+                    <div class="carousel-item active row">
+                        <a href="http://www.mnre.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float:left;padding: 0px"
+                                 src="img/t1.png"></a>
+                        <a href="http://powermin.nic.in/en">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float: left;padding: 0px"
+                                 src="img/t2.png"></a>
+                    </div>
+                    <div class="carousel-item row">
+                        <a href="http://powermin.nic.in/en">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float:left;padding: 0px"
+                                 src="img/t2.png"></a>
+                        <a href="http://msde.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float: left;padding: 0px"
+                                 src="img/t3.png"></a>
+                    </div>
+                    <div class="carousel-item row">
+                        <a href="http://msde.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float:left;padding: 0px"
+                                 src="img/t3.png"></a>
+                        <a href="http://www.mnre.gov.in/">
+                            <img class="col-md-6 d-block w-100" style="margin: 0px;float: left;padding: 0px"
+                                 src="img/t1.png"></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-3" style="padding: 10px 0px 5px 20px">
+            <div class="row" style="margin: 5px">
+                <div class="col-md-4"><img src="img/skill-india.png" width="100%"></div>
+                <div class="col-md-8"><img src="img/nsdc.png" width="100%"></div>
+            </div>
+        </div>
+    </div><br>
+
+
+    <div class="row"
+         style="background-color: whitesmoke;position: relative;min-height:100vh;padding-top: 6px;overflow-y: visible ">
+
+
+        <div class="col-md-2" style="background-color: lightblue;padding-top: 20px;min-height: 100vh">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link" id="v-pills-home-tab"  href=""
+                   aria-selected="false">Affiliation Form</a>
+                <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="" role="tab"
+                   aria-controls="v-pills-profile" aria-selected="true">Dashboard</a>
+            </div>
+
+
+        </div>
+        <div class="col-md-10">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                     aria-labelledby="v-pills-home-tab">
+                    <div class="container-fluid" align="center">
+                        <p>
+                        <div class="row">
+                            <div class="col-md-7" style="font-size: small;vertical-align: middle">Please read the
+                                instructions before filling out the form in order to
+                                apply as Assessment Body
+                            </div>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2">
+                                <a>Guidelines</a></div>
+                        </div>
+                        </p>
+
+                        <!-- START -->
+                        <div class="row"><b>Welcome USERNAME </b></div> <!-- to be replaced by real user name -->
+
+                        <div class="row" >
+
+                            <table class="table table-bordered table-hover" >
+                                <thead>
+                                <tr >
+                                    <th scope="col">Application ID</th>
+                                    <th scope="col">DateOF Submission</th>
+                                    <th scope="col">Submitted By</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                    <th scope="col">Comment</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                Application Status
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Batch ID</th>
+                                    <th scope="col">TP Name|email|contact no.</th>
+                                    <th scope="col">Assessment Date</th>
+                                    <th scope="col">District|State</th>
+                                    <th scope="col">No. Of Candidates</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                Past Batch(es)
+                                <tr th:each="item:${vi}">
+
+                                    <td th:text="${item.getBatch_id()}">  </td>
+                                    <td th:text="${item.getTp_id()}">  </td>
+                                    <td th:text="${item.getAssessment_date()}">  </td>
+                                    <td th:text="${item.getNo_of_candidates_placed()}">  </td>
+
+
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Batch ID</th>
+                                    <th scope="col">TP Name|email|contact no.</th>
+                                    <th scope="col">Assessment Date</th>
+                                    <th scope="col">District|State</th>
+                                    <th scope="col">No. Of Candidates</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                Proposed Batch(es)
+                                <tr  >
+                                    <th scope="row"></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Batch ID</th>
+                                    <th scope="col">TP Name|email|contact no.</th>
+                                    <th scope="col">Assessment Date</th>
+                                    <th scope="col">District|State</th>
+                                    <th scope="col">No. Of Candidates</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                Confirmed Batches
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div><!-- col-8 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- FORM END -->
+
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+    <div class="row " style="min-width: 100%">
+
+        <div class="col-md-12" style="background-color: darkseagreen;padding: 5px;font-size:12px;font-family: Georgia"
+             align="center">
+            <a href="http://sscgj.in/" style="color: black">HOME</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=6" style="color: black">ABOUT US</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=64" style="color: black">INDUSTRY CONNECT</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=772" style="color: black">NATIONAL STANDARDS</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=12" style="color: black">AFFILIATIONS</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=14" style="color: black">PUBLICATIONS</a> &nbsp&nbsp|&nbsp&nbsp
+            <a href="http://sscgj.in/?page_id=16" style="color: black">STATE LINKAGES </a>
+        </div>
+
+
+        <div class="col-md-12" align="center"
+             style="background-color: cadetblue;width: 100%;padding: 6px;font-size: smaller">
+            Copyright &copy; 2016 sscgj.in - All Rights Reserved.
+
+        </div>
+
+    </div></footer>
+
+
+</div>
+
+
+</body>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+</script>
+<script>
+    !function ($) {
+        $(function () {
+            // carousel demo
+            $('#myCarousel').carousel()
+        })
+    }(window.jQuery)
+
+</script>
+</html>
